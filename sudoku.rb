@@ -59,15 +59,9 @@ def prepare_to_check_solution
 end
 
 def puzzle(sudoku)
-	random_index =  [*1..81].sample(rand(10..30))
- 	sudoku.each_with_index.map do |element, index|
- 		if random_index.include? (index)
- 			element = 0
- 		else
- 			element
- 		end
- 	end
- 	
+	random_index =  [*0..81].sample(rand(25..50))
+	random_index.each {|index| sudoku[index] = 0}
+	sudoku
 end
 
 get '/' do
