@@ -3,6 +3,7 @@ require 'sinatra/partial'
 set :partial_template_engine, :erb
 require 'rack-flash'
 use Rack::Flash
+set :session_secret, "I'm the not-so-secret secret key."
 
 require_relative './lib/sudoku'
 require_relative './lib/cell'
