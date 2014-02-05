@@ -1,4 +1,7 @@
 require 'sinatra'
+require 'sinatra/partial'
+set :partial_template_engine, :erb
+
 require_relative './lib/sudoku'
 require_relative './lib/cell'
 
