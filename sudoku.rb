@@ -8,22 +8,22 @@ require_relative './helpers/application'
 
 enable :sessions
 set :session_secret, "I'm the not-so-secret secret key."
-use Rack::Flashset :partial_template_engine, :erb
+use Rack::Flash
+set :partial_template_engine, :erb
 
 
+#################################################################
+def puzzle(sudoku)
+	random_index =  [*0..81].sample(rand(25..50))
+	random_index.each {|index| sudoku[index] = 0}
+	sudoku
+end
 
 def random_sudoku
 	seed = (1..9).to_a.shuffle + Array.new(81-9, 0)
 	sudoku = Sudoku.new(seed.join)
 	sudoku.solve!
 	sudoku.to_s.chars
-end
-
-#This creates a Sudoku puzzle
-def puzzle(sudoku)
-	random_index =  [*0..81].sample(rand(25..50))
-	random_index.each {|index| sudoku[index] = 0}
-	sudoku
 end
 
 def generate_new_puzzle_if_necessary
@@ -42,7 +42,6 @@ def prepare_to_check_solution
 	session[:check_solution] = nil
 end
 
-
 def box_order_to_row_order(cells)
 	boxes = cells.each_slice(9).to_a
 	(0..8).to_a.inject([]) do |memo, i|
@@ -56,13 +55,18 @@ def box_order_to_row_order(cells)
 	memo += three_rows_of_three.flatten
 	end
 end
+#################################################################
 
+
+#################################################################
 get '/' do
 	prepare_to_check_solution
 	generate_new_puzzle_if_necessary
+
 	@current_solution = session[:current_solution] || session[:puzzle]
 	@solution = session[:solution]
 	@puzzle = session[:puzzle]
+  
   erb :index
 end
 
@@ -74,15 +78,13 @@ post '/' do
 	redirect to('/')
 end
 
-get '/solution' do
-	@current_solution = session[:solution]
-	erb :index
-end
-
 post '/newsudoku' do
 	session.clear
 	redirect to('/')
 end
 
-
-
+get '/solution' do
+	@current_solution = session[:solution]
+	erb :index
+end
+#################################################################
