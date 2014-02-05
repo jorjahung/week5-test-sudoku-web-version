@@ -100,4 +100,9 @@ get '/solution' do
 	erb :index
 	# erb :solution
 end
+
+get '/help' do
+	erb :help
+	# erb :solution
+end
 #################################################################

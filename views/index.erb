@@ -4,21 +4,36 @@
 	<%= flash[:notice] %>
 </div>
 
+<div class="help">
+	<form action="/help" method="get">
+		<button>How do I play?</button>
+	</form>
+</div>
+
+
+<br>
+<form action="/newsudoku" method="post">
+	<button>New puzzle please!</button>
+</form>
+
+
+
+
+
 <div id="sudoku">
 
 	<form action="/" method="post">
 		<%= partial :sudoku_grid %>
-		<button>Check solution</button>
+		<button type="reset" value="Reset">Ugh! Reset!</button>   
+		<button>Check my answers!</button>   
 	</form>
 
 	<form action="/solution" method="get">
-		<button>Get solution</button>
+		<button>I give up!</button>   
 	</form>
 
 	<br>
 
-	<form action="/newsudoku" method="post">
-		<button>New puzzle</button>
-	</form>
+
 
 </div>
