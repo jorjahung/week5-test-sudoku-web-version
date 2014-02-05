@@ -14,9 +14,14 @@ set :partial_template_engine, :erb
 
 #################################################################
 def puzzle(sudoku)
-	random_index =  [*0..81].sample(rand(25..50))
-	random_index.each {|index| sudoku[index] = 0}
-	sudoku
+	sudoku.each_with_index.map do |element, index|
+		random_index =  [*0..81].sample(rand(25..50))
+		if random_index.include? (index)
+			element = 0
+		else
+			element		
+		end
+	end
 end
 
 def random_sudoku
@@ -37,7 +42,7 @@ end
 def prepare_to_check_solution
 	@check_solution = session[:check_solution]
 	if @check_solution
-		flash[:notice] = "Incorrect values are highlighted in turquoise."
+		flash[:notice] = "Incorrect values are highlighted in <font style='BACKGROUND-COLOR: #9CC1CC'>this yucky colour</font>."
 	end
 	session[:check_solution] = nil
 end
@@ -66,7 +71,7 @@ get '/' do
 	@current_solution = session[:current_solution] || session[:puzzle]
 	@solution = session[:solution]
 	@puzzle = session[:puzzle]
-  
+
   erb :index
 end
 
@@ -74,7 +79,11 @@ post '/' do
 	cells = box_order_to_row_order(params["cell"])
 	session[:current_solution] = cells.map { |value| value.to_i }.join
 	session[:check_solution] = true
-	
+	redirect to('/')
+end
+
+post '/save' do
+	session[:check_solution] = false
 	redirect to('/')
 end
 
@@ -83,8 +92,12 @@ post '/newsudoku' do
 	redirect to('/')
 end
 
+
 get '/solution' do
 	@current_solution = session[:solution]
+	@solution = session[:solution]
+	@puzzle = session[:solution] 
 	erb :index
+	# erb :solution
 end
 #################################################################

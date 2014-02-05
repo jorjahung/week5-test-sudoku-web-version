@@ -5,12 +5,20 @@
 </div>
 
 <div id="sudoku">
+
 	<form action="/" method="post">
 		<%= partial :sudoku_grid %>
 		<button>Check solution</button>
 	</form>
-	
-	<form action="/newsudoku" method="post">
-		<button>New easy puzzle</button>
+
+	<form action="/solution" method="get">
+		<button>Get solution</button>
 	</form>
+
+	<br>
+
+	<form action="/newsudoku" method="post">
+		<button>New puzzle</button>
+	</form>
+
 </div>
