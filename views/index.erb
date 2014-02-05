@@ -1,41 +1,16 @@
-
-<html>
-<head>
-	<title>Sudoku Game</title>
-	<link href="/stylesheets/application.css" rel="stylesheet" type="text/css">
-	<link href='http://fonts.googleapis.com/css?family=The+Girl+Next+Door' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Gorditas:400,700' rel='stylesheet' type='text/css'>
-</head>
-
-<body>
 <h1>Life is too pink for playing Sudoku!</h1>
 
 <div id="flash">
 	<%= flash[:notice] %>
 </div>
 
-	<div id="sudoku">
-		<form action="/" method="post">
-			<!-- one div for each row-->
-			<% 3.times do |row| %>
-				<div class='row'>
-				<!-- we want to create separate div elements for boxes to style them using CSS -->
-					<% 3.times do |box| %>
-						<div class="box">
-						<!-- each box will have nine cells -->
-							<% 3.times do |cell_row| %>
-								<div class="cell-row">
-									<% 3.times do |cell| %>
-										<%= partial :cell, :locals => {:cell_index => row*27+box*3+cell_row*9+cell} %>
-									<% end %> <!-- end of cell -->
-								</div>
-							<% end %> <!-- end of cell-row -->
-						</div>
-					<% end %> <!-- end of box -->
-				</div>
-			<% end %> <!-- end of row -->
-			<button>Check solution</button>
-		</form>
-	</div>
-</body>
-</html>
+<div id="sudoku">
+	<form action="/" method="post">
+		<%= partial :sudoku_grid %>
+		<button>Check solution</button>
+	</form>
+	
+	<form action="/newsudoku" method="post">
+		<button>New easy puzzle</button>
+	</form>
+</div>
