@@ -98,11 +98,9 @@ get '/solution' do
 	@solution = session[:solution]
 	@puzzle = session[:solution] 
 	erb :index
-	# erb :solution
 end
 
 get '/help' do
 	erb :help
-	# erb :solution
 end
 #################################################################
