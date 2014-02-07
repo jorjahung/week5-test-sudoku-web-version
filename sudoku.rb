@@ -11,6 +11,10 @@ set :session_secret, "I'm the not-so-secret secret key."
 use Rack::Flash
 set :partial_template_engine, :erb
 
+configure :production do
+  require 'newrelic_rpm'
+end
+
 
 #################################################################
 def puzzle(sudoku)
