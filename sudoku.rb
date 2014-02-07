@@ -95,7 +95,7 @@ end
 get '/newsudoku' do
 	session.clear
 	session[:level] = params[:level].to_i
-	redirect to('/')
+	redirect to('/#sudoku')
 end
 
 

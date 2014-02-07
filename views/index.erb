@@ -1,4 +1,4 @@
-<h1>Life is too pink for playing Sudoku!</h1>
+
 
 <% if flash[:notice] %>
 	<div id="flash">
@@ -6,28 +6,27 @@
 	</div>
 <% end %>
 
-<div class="bottom-right">
-	<form action="/help" method="get">
-		<button>How do I play?</button>
+
+<div class="new-sudoku-kitten">
+<h1>I herd you lyk Sudokuz</h1>
+	<form action="/newsudoku" method="get">
+		<button name="level" value="30">New easy puzzle please!</button>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<button name="level" value="50">New hard puzzle please!</button>
 	</form>
 </div>
 
-<form action="/newsudoku" method="get">
-	<button name="level" value="30">New easy puzzle please!</button>
-	<button name="level" value="50">New hard puzzle please!</button>
-</form>
 
+<div class="kitten-give-sudoku">
 
-
-
-
+<a id="sudoku">
 <div id="sudoku">
 
 	<form action="/" method="post">
 		<%= partial :sudoku_grid %>
 		<button type="reset" value="Reset">Ugh! Reset!</button>   
 		<button>Check my answers!</button>   
-	</form>
+</form>
 
 	<form action="/solution" method="get">
 		<button>I give up!</button>   
@@ -35,6 +34,14 @@
 
 	<br>
 
-
-
 </div>
+</a>
+</div>
+
+<div class="help">
+	<img src="/images/confused-kitten.png"><br>
+	<form action="/help" method="get">
+		<button>How do I play?</button>
+	</form>
+</div>
+

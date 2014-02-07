@@ -1,10 +1,11 @@
 body {
-	background-color: #FF91AF;
+	background-color: #FFFDD0;
 	text-align: center;
 	font-family: 'The Girl Next Door';
 }
 
  h1 {  
+ 	z-index: 1;
   position: relative;  
   font-size: 50px;  
   margin: 0;  
@@ -18,13 +19,46 @@ body {
   transition: all .4s;  
     }  
 
- div.bottom-right {
+.help {
  	position:absolute;
  	bottom: 0px;
  	right: 0px;
  }
 
+
+.new-sudoku-kitten {
+ 	background: url('/images/new-sudoku-kitten.jpg');
+  width:800px;
+  height:600px;
+  margin-left:auto;
+	margin-right:auto;
+	left: 0;
+	right: 0;
+
+ }
+
+.new-sudoku-kitten form {
+position: relative;
+top: 200px;
+}
+
+.kitten-give-sudoku {
+ 	background: url('/images/kitten-give-sudoku.jpg');
+  width:800px;
+  height:1050px;
+  margin-left:auto;
+	margin-right:auto;
+	left: 0;
+	right: 0;
+
+ }
+
+
 #sudoku {
+	position: relative;
+	top: 210px;
+	left: 0;
+	right: 0;
 	font-size: 0;
 	text-align: center;
 }
@@ -53,8 +87,8 @@ div.cell {
 	border-style: solid;
 	border-width: .05em;
 	border-color:  #7F6F73;
-	width: 45px;
-	height: 45px;
+	width: 60px;
+	height: 60px;
 	padding-bottom: 0px;
 	font-size: 25;
 	font-weight: bolder;
@@ -82,12 +116,12 @@ img {
 button {
 		display: inline;
     margin: 10px;
-		width: 160px;
+		width: 200px;
 
 		text-align: center;
     text-decoration: none;
     background-color: #FFDDE7;
-		font-size: 12px; 
+		font-size: 20px; 
 		color: #7F6E73;   
 	  font-family: 'Gorditas', cursive;
 
