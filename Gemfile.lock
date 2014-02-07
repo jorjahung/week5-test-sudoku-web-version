@@ -3,6 +3,7 @@ GEM
   specs:
     diff-lcs (1.2.5)
     minitest (5.2.2)
+    newrelic_rpm (3.7.2.192)
     rack (1.5.2)
     rack-flash3 (1.0.5)
       rack
@@ -31,6 +32,7 @@ PLATFORMS
 
 DEPENDENCIES
   minitest
+  newrelic_rpm
   rack-flash3
   rspec
   shotgun
