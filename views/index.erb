@@ -9,29 +9,26 @@
 
 
 <div class="kitten-give-sudoku">
-<% if flash[:notice] %>
-	<div id="flash">
-		<%= flash[:notice] %>
+	<a id="sudoku">
+	<div id="sudoku">
+		<% if flash[:notice] %>
+			<div id="flash">
+				<%= flash[:notice] %>
+			</div>
+		<% end %>
+
+		<form action="/" method="post">
+			<%= partial :sudoku_grid %>
+			<button type="reset" value="Reset">NOOO!</button>   
+			<button>CHECKZ PLZ!</button>   
+		</form>
+
+		<form action="/solution" method="get">
+			<button>DO NOT LYK!</button>   
+		</form>
+		<br>
 	</div>
-<% end %>
-<a id="sudoku">
-<div id="sudoku">
-
-
-	<form action="/" method="post">
-		<%= partial :sudoku_grid %>
-		<button type="reset" value="Reset">NOOO!</button>   
-		<button>CHECKZ PLZ!</button>   
-</form>
-
-	<form action="/solution" method="get">
-		<button>DO NOT LYK!</button>   
-	</form>
-
-	<br>
-
-</div>
-</a>
+	</a>
 </div>
 
 <div class="help">
