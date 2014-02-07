@@ -14,8 +14,9 @@ set :partial_template_engine, :erb
 
 #################################################################
 def puzzle(sudoku)
+	hardness = session[:level] || 30
 	sudoku.each_with_index.map do |element, index|
-		random_index =  [*0..81].sample(rand(25..50))
+		random_index =  [*0..81].sample(rand(hardness..(hardness+5)))
 		if random_index.include? (index)
 			element = 0
 		else
@@ -87,8 +88,9 @@ post '/save' do
 	redirect to('/')
 end
 
-post '/newsudoku' do
+get '/newsudoku' do
 	session.clear
+	session[:level] = params[:level].to_i
 	redirect to('/')
 end
 
