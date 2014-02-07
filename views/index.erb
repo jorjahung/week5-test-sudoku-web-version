@@ -1,9 +1,10 @@
 <h1>Life is too pink for playing Sudoku!</h1>
 
-<div id="flash">
-	<%= flash[:notice] %>
-</div>
-
+<% if flash[:notice] %>
+	<div id="flash">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
 
 <div class="bottom-right">
 	<form action="/help" method="get">
@@ -11,8 +12,6 @@
 	</form>
 </div>
 
-
-<br>
 <form action="/newsudoku" method="get">
 	<button name="level" value="30">New easy puzzle please!</button>
 	<button name="level" value="50">New hard puzzle please!</button>
