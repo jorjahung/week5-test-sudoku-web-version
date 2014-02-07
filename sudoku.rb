@@ -84,7 +84,7 @@ post '/' do
 	cells = box_order_to_row_order(params["cell"])
 	session[:current_solution] = cells.map { |value| value.to_i }.join
 	session[:check_solution] = true
-	redirect to('/')
+	redirect to('/#sudoku')
 end
 
 post '/save' do
