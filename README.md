@@ -7,8 +7,8 @@ For week 5, I created a web version of Sudoku using Sinatra, HTML, CSS and Ruby
 I deployed two version of this to heroku
 * Very Pink Sudoku: http://very-pink-sudoku.herokuapp.com
 
-![alt text](https://github.com/jorjahung/sudoku-web-version/blob/master/very-pink-sudoku.png "Very Pink Sudoku")
+![alt text](https://raw.githubusercontent.com/jorjahung/sudoku-web-version/master/very-pink-sudoku.png "Very Pink Sudoku")
 
 * Sudokitten: http://sudokitten.herokuapp.com
 
-![alt text](https://github.com/jorjahung/sudoku-web-version/blob/master/sudokitten.png "Sudokitten")
+![alt text](https://raw.githubusercontent.com/jorjahung/sudoku-web-version/master/sudokitten.png "Sudokitten")
